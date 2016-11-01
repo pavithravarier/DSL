@@ -1,0 +1,137 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+static int c;
+static int front=0;
+static int rear=0;
+static int flag=0;
+
+void enqueue(long int q[],long int e);
+long int dequeue(long int q[]);
+void print(long int q[]);
+
+int main()
+{
+float cn;
+scanf("%f",&cn);
+if(cn<=0||cn>=100||cn-(int)cn!=0)
+{
+printf("invalid number of elements!");
+goto ret;
+}
+c=(int)cn;
+long int p;
+double r;
+char ch;
+long int *q=(long int *)malloc(c*(sizeof(long int)));
+do
+{
+//printf("\n");
+scanf(" %c",&ch);
+switch (ch)
+{
+case 'e':scanf("%lf",&r);
+	 if(r<0||r-(long int)r!=0||(long int)r>2147483648)
+	 {
+	  printf("\ninvalid input");
+		goto ret;
+	 }
+	 p=(long int)r;
+	 enqueue(q,r);
+	 break;
+case 'd':p=dequeue(q);
+	 if(flag!=0)
+	 printf("%li\n",p);
+	 break;
+case 'p':print(q);
+	 break;
+case 's':printf("\n");
+	 break;
+default: printf("\nwrong choice, enter again\n");
+}
+}while(ch!='s');
+ret:return 0;
+}
+
+void enqueue(long int q[],long int e)
+{
+if(rear!=c-1)
+{
+if(rear+1==front)
+{
+printf("OVERFLOW\n");
+goto ret1;
+}
+else goto label;
+}
+else 
+{
+if(front==0)
+{
+printf("OVERFLOW\n");
+goto ret1;
+} 
+}
+label:
+q[rear]=e;
+
+if(rear==c-1)
+rear=0;
+else
+rear++;
+ret1:return;
+}
+
+
+long int dequeue(long int q[])
+{
+int a=-1;
+if(front==rear)
+{
+flag=0;
+printf("Empty\n");
+goto ret2;
+}
+
+a=q[front];
+flag=1;
+if(front==c-1)
+{
+front=0;
+}
+else
+{
+front++;
+}
+/*for(i=0;i<rear;i++)
+q[i]=q[i+1];
+rear--;*/
+
+ret2:return a;
+}
+
+void print(long int q[])
+{
+if(front==rear)
+{
+printf("EMPTY\n");
+goto ret3;
+}
+int j;
+if(front<rear)
+{
+for(j=front;j<rear;j++)
+printf("%li ",q[j]);
+printf("\n");
+}
+else
+{
+for(j=front;j<=c-1;j++)
+printf("%li ",q[j]);
+for(j=0;j<rear;j++)
+printf("%li ",q[j]);
+printf("\n");
+}
+ret3:return;
+}
+

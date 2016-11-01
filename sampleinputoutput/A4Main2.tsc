@@ -1,0 +1,58 @@
+srch 25
+minm
+maxm
+pred 25
+succ 25
+insr 25
+srch 25
+minm
+maxm
+pred 25
+succ 25
+insr 13
+insr 50
+insr 45
+insr 55
+insr 18
+srch 10
+srch 13
+srch 35
+srch 55
+srch 80
+inor
+prer
+post
+minm
+maxm
+pred 13
+succ 13
+pred 18
+succ 18
+pred 25
+succ 25
+pred 45
+succ 45
+pred 50
+succ 50
+pred 55
+succ 55
+delt 55
+delt 13
+delt 25
+minm
+maxm
+pred 18
+succ 18
+pred 45
+succ 45
+pred 50
+succ 50
+delt 45
+delt 50
+delt 18
+minm
+maxm
+insr 90
+minm
+maxm
+stop
